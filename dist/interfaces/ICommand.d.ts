@@ -4,8 +4,6 @@ export default interface ICommand {
     category: string;
     aliases: string[];
     examples: string[];
-    clientPermissions: string[];
-    userPermissions: string[];
     subCommands: string[];
     ownerOnly: boolean;
     hidden: boolean;

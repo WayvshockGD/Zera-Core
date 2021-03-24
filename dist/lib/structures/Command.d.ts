@@ -7,8 +7,6 @@ declare class Command extends Bases implements ICommand {
     category: string;
     aliases: string[];
     examples: string[];
-    clientPermissions: string[];
-    userPermissions: string[];
     subCommands: string[];
     ownerOnly: boolean;
     hidden: boolean;

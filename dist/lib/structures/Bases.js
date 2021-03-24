@@ -59,6 +59,28 @@ var Bases = /** @class */ (function () {
             }
         });
     };
+    /**
+     * @param level The level color for the message. [true=red|false=green]
+     * @returns
+     */
+    Bases.prototype.pinMessage = function (message, text, level) {
+        return __awaiter(this, void 0, void 0, function () {
+            var colorLevel;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        colorLevel = level ? 0xff6554 : 0x54ff85;
+                        return [4 /*yield*/, message.channel.createMessage({
+                                embed: {
+                                    description: text,
+                                    color: colorLevel
+                                }
+                            }).then(function (msg) { return msg.pin(); })];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
     Bases.prototype.checkUserPermissions = function (message, permissions) {
         var _a;
         for (var _i = 0, permissions_1 = permissions; _i < permissions_1.length; _i++) {
