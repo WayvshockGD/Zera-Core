@@ -19,4 +19,4 @@ class Pinner {
     }
 }
 
-export default Pinner;
+export default new Pinner();

@@ -23,4 +23,4 @@ var Embedder = /** @class */ (function () {
     };
     return Embedder;
 }());
-exports.default = Embedder;
+exports.default = new Embedder();

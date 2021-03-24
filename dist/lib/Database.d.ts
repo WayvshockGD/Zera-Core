@@ -5,4 +5,5 @@ declare class Database {
         useUnifiedTopology: boolean;
     }): void;
 }
-export default Database;
+declare const _default: Database;
+export default _default;

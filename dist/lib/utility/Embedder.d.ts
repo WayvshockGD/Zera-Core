@@ -9,4 +9,5 @@ declare class Embedder {
         desc: string;
     }): Promise<Eris.Message<Eris.TextableChannel>>;
 }
-export default Embedder;
+declare const _default: Embedder;
+export default _default;

@@ -21,4 +21,4 @@ var Pinner = /** @class */ (function () {
     };
     return Pinner;
 }());
-exports.default = Pinner;
+exports.default = new Pinner();

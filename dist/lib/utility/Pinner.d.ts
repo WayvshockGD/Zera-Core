@@ -3,4 +3,5 @@ declare class Pinner {
     _pinMessage(message: Eris.Message): void;
     _unPinMessage(message: Eris.Message): void;
 }
-export default Pinner;
+declare const _default: Pinner;
+export default _default;

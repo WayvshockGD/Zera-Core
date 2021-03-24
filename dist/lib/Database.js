@@ -16,4 +16,4 @@ var Database = /** @class */ (function () {
     };
     return Database;
 }());
-exports.default = Database;
+exports.default = new Database();
