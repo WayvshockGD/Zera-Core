@@ -59,11 +59,25 @@ var Bases = /** @class */ (function () {
             }
         });
     };
+    Bases.prototype.checkUserPermissions = function (message, permissions) {
+        var _a;
+        for (var _i = 0, permissions_1 = permissions; _i < permissions_1.length; _i++) {
+            var p = permissions_1[_i];
+            (_a = message.member) === null || _a === void 0 ? void 0 : _a.permissions.has(p);
+        }
+    };
+    Bases.prototype.checkClientPermissions = function (message, permissions, clientID) {
+        var _a, _b;
+        for (var _i = 0, permissions_2 = permissions; _i < permissions_2.length; _i++) {
+            var p = permissions_2[_i];
+            (_b = (_a = message.member) === null || _a === void 0 ? void 0 : _a.guild.members.get(clientID)) === null || _b === void 0 ? void 0 : _b.permissions.has(p);
+        }
+    };
     /**
      * @param link The link that the fetcher that will fetch.
      * @param type Types: [false=json|true=text]
      */
-    Bases.prototype._fetcher = function (link, type) {
+    Bases.prototype._fetch = function (link, type) {
         return __awaiter(this, void 0, void 0, function () {
             var res, fetchType, j;
             return __generator(this, function (_a) {

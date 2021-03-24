@@ -19,12 +19,24 @@ class Bases {
             }
         })
     }
+
+    checkUserPermissions(message: Eris.Message, permissions: string[]) {
+        for (let p of permissions) {
+            message.member?.permissions.has(p);
+        }
+    }
+
+    checkClientPermissions(message: Eris.Message, permissions: string[], clientID: string) {
+        for (let p of permissions) {
+            message.member?.guild.members.get(clientID)?.permissions.has(p);
+        }
+    }
     
     /**
      * @param link The link that the fetcher that will fetch.
      * @param type Types: [false=json|true=text]
      */
-    async _fetcher(link: string, type: boolean) {
+    async _fetch(link: string, type: boolean): Promise<Function> {
 
         let res = await fetch(link);
 

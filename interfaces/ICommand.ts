@@ -7,8 +7,6 @@ export default interface ICommand {
     // Arrays
     aliases: string[];
     examples: string[];
-    clientPermissions: string[];
-    userPermissions: string[];
     subCommands: string[];
 
     // Booleans

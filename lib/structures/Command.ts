@@ -9,8 +9,6 @@ class Command extends Bases implements ICommand {
 
     aliases: string[]
     examples: string[];
-    clientPermissions: string[];
-    userPermissions: string[];
     subCommands: string[];
 
     ownerOnly: boolean;
@@ -29,8 +27,6 @@ class Command extends Bases implements ICommand {
 
         this.aliases = command || [];
         this.examples = command || [];
-        this.clientPermissions = command || [];
-        this.userPermissions = command || [];
         this.subCommands = command || [];
 
         this.ownerOnly = command || false;
