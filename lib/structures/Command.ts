@@ -10,6 +10,8 @@ class Command extends Bases implements ICommand {
     aliases: string[]
     examples: string[];
     subCommands: string[];
+    clientPermissions: string[];
+    userPermissions: string[];
 
     ownerOnly: boolean;
     hidden: boolean;
@@ -28,6 +30,8 @@ class Command extends Bases implements ICommand {
         this.aliases = command || [];
         this.examples = command || [];
         this.subCommands = command || [];
+        this.clientPermissions = command || [];
+        this.userPermissions = command || [];
 
         this.ownerOnly = command || false;
         this.hidden = command || false

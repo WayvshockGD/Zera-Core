@@ -8,6 +8,8 @@ export default interface ICommand {
     aliases: string[];
     examples: string[];
     subCommands: string[];
+    clientPermissions: string[];
+    userPermissions: string[];
 
     // Booleans
     ownerOnly: boolean;
