@@ -34,12 +34,6 @@ class Bases extends Utility {
             }
         }).then(msg => msg.pin());
     }
-
-    checkUserPermissions(message: Eris.Message, permissions: string[]) {
-        for (let p of permissions) {
-            message.member?.permissions.has(p);
-        }
-    }
 }
 
 export default Bases;
