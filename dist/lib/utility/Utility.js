@@ -1,19 +1,4 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -54,57 +39,65 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var Utility_1 = __importDefault(require("../utility/Utility"));
-var Bases = /** @class */ (function (_super) {
-    __extends(Bases, _super);
-    function Bases() {
-        return _super !== null && _super.apply(this, arguments) || this;
+var node_fetch_1 = __importDefault(require("node-fetch"));
+var Utility = /** @class */ (function () {
+    function Utility() {
     }
-    Bases.prototype.sendMessage = function (message, text) {
-        return message.channel.createMessage({
-            embed: {
-                description: text,
-                color: 0x54ff85
-            }
-        });
+    Utility.prototype._pinMessage = function (message) {
+        try {
+            message.pin();
+        }
+        catch (error) {
+            console.error(error);
+            //    return message.channel.createMessage({
+            //        embed: {
+            //            description: 'Unable to pin message.',
+            //            color: 0xff6554
+            //        },
+            //    })
+        }
     };
-    Bases.prototype.sendError = function (message, text) {
-        return message.channel.createMessage({
-            embed: {
-                description: text,
-                color: 0xff6554
-            }
-        });
+    Utility.prototype._unPinMessage = function (message) {
+        try {
+            message.unpin();
+        }
+        catch (error) {
+            console.error(error);
+            //   return message.channel.createMessage({
+            //       embed: {
+            //           description: 'Unable to unpin message.',
+            //           color: 0xff6554
+            //       },
+            //   })
+        }
+    };
+    Utility.prototype._react = function (message, client, emoji) {
+        try {
+            client.addMessageReaction(message.channel.id, message.id, emoji);
+        }
+        catch (error) {
+            console.error(error);
+        }
     };
     /**
-     * @param level The level color for the message. [true=red|false=green]
-     * @returns
+     * @param link The link that the fetcher that will fetch.
+     * @param type Types: [false=json|true=text]
      */
-    Bases.prototype.pinMessage = function (message, text, level) {
+    Utility.prototype._fetch = function (link, type) {
         return __awaiter(this, void 0, void 0, function () {
-            var colorLevel;
+            var res, fetchType, j;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        colorLevel = level ? 0xff6554 : 0x54ff85;
-                        return [4 /*yield*/, message.channel.createMessage({
-                                embed: {
-                                    description: text,
-                                    color: colorLevel
-                                }
-                            }).then(function (msg) { return msg.pin(); })];
-                    case 1: return [2 /*return*/, _a.sent()];
+                    case 0: return [4 /*yield*/, node_fetch_1.default(link)];
+                    case 1:
+                        res = _a.sent();
+                        fetchType = type ? res.text() : res.json();
+                        j = fetchType;
+                        return [2 /*return*/, j];
                 }
             });
         });
     };
-    Bases.prototype.checkUserPermissions = function (message, permissions) {
-        var _a;
-        for (var _i = 0, permissions_1 = permissions; _i < permissions_1.length; _i++) {
-            var p = permissions_1[_i];
-            (_a = message.member) === null || _a === void 0 ? void 0 : _a.permissions.has(p);
-        }
-    };
-    return Bases;
-}(Utility_1.default));
-exports.default = Bases;
+    return Utility;
+}());
+exports.default = Utility;

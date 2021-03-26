@@ -1,7 +1,7 @@
 import Eris from "eris";
-import fetch from 'node-fetch';
+import Utility from "../utility/Utility";
 
-class Bases {
+class Bases extends Utility {
     sendMessage(message: Eris.Message, text: string) {
         return message.channel.createMessage({
             embed: {
@@ -19,7 +19,6 @@ class Bases {
             }
         })
     }
-
 
     /**
      * @param level The level color for the message. [true=red|false=green]
@@ -40,25 +39,6 @@ class Bases {
         for (let p of permissions) {
             message.member?.permissions.has(p);
         }
-    }
-
-    checkClientPermissions(message: Eris.Message, permissions: string[], clientID: string) {
-        for (let p of permissions) {
-            message.member?.guild.members.get(clientID)?.permissions.has(p);
-        }
-    }
-    
-    /**
-     * @param link The link that the fetcher that will fetch.
-     * @param type Types: [false=json|true=text]
-     */
-    async _fetch(link: string, type: boolean): Promise<Function> {
-
-        let res = await fetch(link);
-
-        let fetchType = type ? res.text() : res.json();
-        let j = fetchType;
-        return j;
     }
 }
 
