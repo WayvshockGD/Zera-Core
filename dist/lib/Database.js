@@ -8,7 +8,7 @@ var Database = /** @class */ (function () {
     function Database() {
     }
     Database.prototype._init = function (link, options) {
-        mongoose_1.default.connect(link, {
+        return mongoose_1.default.connect(link, {
             useNewUrlParser: options.useNewUrlParser,
             useUnifiedTopology: options.useUnifiedTopology,
             autoIndex: options.autoIndex,

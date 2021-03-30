@@ -11,10 +11,19 @@ class Bases extends Utility {
         })
     }
 
-    sendError(message: Eris.Message, text: string) {
+    sendSucess(message: Eris.Message, text: string, config: any) {
         return message.channel.createMessage({
             embed: {
-                description: text,
+                description: `${config.check} ${text}`,
+                color: 0xff6554
+            }
+        })
+    }
+
+    sendError(message: Eris.Message, text: string, config: any) {
+        return message.channel.createMessage({
+            embed: {
+                description: `${config.deny} ${text}`,
                 color: 0xff6554
             }
         })
@@ -33,6 +42,12 @@ class Bases extends Utility {
                 color: colorLevel
             }
         }).then(msg => msg.pin());
+    }
+
+    checkUserPermissions(message: Eris.Message, permissions: string[]) {
+        for (let p of permissions) {
+            message.member?.permissions.has(p);
+        }
     }
 }
 

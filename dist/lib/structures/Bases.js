@@ -68,10 +68,18 @@ var Bases = /** @class */ (function (_super) {
             }
         });
     };
-    Bases.prototype.sendError = function (message, text) {
+    Bases.prototype.sendSucess = function (message, text, config) {
         return message.channel.createMessage({
             embed: {
-                description: text,
+                description: config.check + " " + text,
+                color: 0xff6554
+            }
+        });
+    };
+    Bases.prototype.sendError = function (message, text, config) {
+        return message.channel.createMessage({
+            embed: {
+                description: config.deny + " " + text,
                 color: 0xff6554
             }
         });
