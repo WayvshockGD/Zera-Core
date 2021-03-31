@@ -11,11 +11,11 @@ class Bases extends Utility {
         })
     }
 
-    sendSucess(message: Eris.Message, text: string, config: any) {
+    sendSuccess(message: Eris.Message, text: string, config: any) {
         return message.channel.createMessage({
             embed: {
                 description: `${config.check} ${text}`,
-                color: 0xff6554
+                color: 0x54ff85
             }
         })
     }
@@ -42,12 +42,6 @@ class Bases extends Utility {
                 color: colorLevel
             }
         }).then(msg => msg.pin());
-    }
-
-    checkUserPermissions(message: Eris.Message, permissions: string[]) {
-        for (let p of permissions) {
-            message.member?.permissions.has(p);
-        }
     }
 }
 

@@ -68,11 +68,11 @@ var Bases = /** @class */ (function (_super) {
             }
         });
     };
-    Bases.prototype.sendSucess = function (message, text, config) {
+    Bases.prototype.sendSuccess = function (message, text, config) {
         return message.channel.createMessage({
             embed: {
                 description: config.check + " " + text,
-                color: 0xff6554
+                color: 0x54ff85
             }
         });
     };
@@ -105,13 +105,6 @@ var Bases = /** @class */ (function (_super) {
                 }
             });
         });
-    };
-    Bases.prototype.checkUserPermissions = function (message, permissions) {
-        var _a;
-        for (var _i = 0, permissions_1 = permissions; _i < permissions_1.length; _i++) {
-            var p = permissions_1[_i];
-            (_a = message.member) === null || _a === void 0 ? void 0 : _a.permissions.has(p);
-        }
     };
     return Bases;
 }(Utility_1.default));

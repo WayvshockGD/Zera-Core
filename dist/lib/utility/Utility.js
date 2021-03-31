@@ -45,7 +45,9 @@ var Utility = /** @class */ (function () {
     }
     Utility.prototype._pinMessage = function (message) {
         try {
-            message.pin();
+            message.pin().catch(function () {
+                return null;
+            });
         }
         catch (error) {
             console.error(error);
@@ -59,7 +61,9 @@ var Utility = /** @class */ (function () {
     };
     Utility.prototype._unPinMessage = function (message) {
         try {
-            message.unpin();
+            message.unpin().catch(function () {
+                return null;
+            });
         }
         catch (error) {
             console.error(error);
@@ -73,7 +77,9 @@ var Utility = /** @class */ (function () {
     };
     Utility.prototype._react = function (message, client, emoji) {
         try {
-            client.addMessageReaction(message.channel.id, message.id, emoji);
+            client.addMessageReaction(message.channel.id, message.id, emoji).catch(function () {
+                return null;
+            });
         }
         catch (error) {
             console.error(error);
@@ -85,15 +91,24 @@ var Utility = /** @class */ (function () {
      */
     Utility.prototype._fetch = function (link, type) {
         return __awaiter(this, void 0, void 0, function () {
-            var res, fetchType, j;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
+            var res, fetchType, _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
                     case 0: return [4 /*yield*/, node_fetch_1.default(link)];
                     case 1:
-                        res = _a.sent();
-                        fetchType = type ? res.text() : res.json();
-                        j = fetchType;
-                        return [2 /*return*/, j];
+                        res = _b.sent();
+                        if (!type) return [3 /*break*/, 3];
+                        return [4 /*yield*/, res.text()];
+                    case 2:
+                        _a = _b.sent();
+                        return [3 /*break*/, 5];
+                    case 3: return [4 /*yield*/, res.json()];
+                    case 4:
+                        _a = _b.sent();
+                        _b.label = 5;
+                    case 5:
+                        fetchType = _a;
+                        return [2 /*return*/, fetchType];
                 }
             });
         });

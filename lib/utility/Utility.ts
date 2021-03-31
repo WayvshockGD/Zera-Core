@@ -5,7 +5,9 @@ class Utility {
 
     public _pinMessage(message: Eris.Message) {
         try {
-            message.pin();
+            message.pin().catch(() => {
+                return null;
+            })
         } catch (error) {
             console.error(error);
         //    return message.channel.createMessage({
@@ -19,7 +21,9 @@ class Utility {
 
     public _unPinMessage(message: Eris.Message) {
         try {
-            message.unpin();
+            message.unpin().catch(() => {
+                return null;
+            })
         } catch (error) {
             console.error(error);
          //   return message.channel.createMessage({
@@ -33,7 +37,9 @@ class Utility {
 
     public _react(message: Eris.Message, client: Eris.Client, emoji: string) {
         try {
-            client.addMessageReaction(message.channel.id, message.id, emoji);
+            client.addMessageReaction(message.channel.id, message.id, emoji).catch(() => {
+                return null;
+            })
         } catch (error) {
             console.error(error);
         }
@@ -45,10 +51,9 @@ class Utility {
          async _fetch(link: string, type: boolean): Promise<Function> {
 
             let res = await fetch(link);
-    
-            let fetchType = type ? res.text() : res.json();
-            let j = fetchType;
-            return j;
+
+            let fetchType = type ? await res.text() : await res.json();
+            return fetchType;
         }
 }
 
