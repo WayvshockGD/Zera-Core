@@ -1,7 +1,19 @@
 import Eris from "eris";
+
+import Embedder from "../utility/Embedder";
+import Markdown from '../utility/Markdown';
 import Utility from "../utility/Utility";
 
 class Bases extends Utility {
+
+    public get embed() {
+        return Embedder;
+    }
+
+    public get markdown() {
+        return Markdown;
+    }
+
     sendMessage(message: Eris.Message, text: string) {
         return message.channel.createMessage({
             embed: {

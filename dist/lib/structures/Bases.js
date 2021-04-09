@@ -54,12 +54,28 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var Embedder_1 = __importDefault(require("../utility/Embedder"));
+var Markdown_1 = __importDefault(require("../utility/Markdown"));
 var Utility_1 = __importDefault(require("../utility/Utility"));
 var Bases = /** @class */ (function (_super) {
     __extends(Bases, _super);
     function Bases() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
+    Object.defineProperty(Bases.prototype, "embed", {
+        get: function () {
+            return Embedder_1.default;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(Bases.prototype, "markdown", {
+        get: function () {
+            return Markdown_1.default;
+        },
+        enumerable: false,
+        configurable: true
+    });
     Bases.prototype.sendMessage = function (message, text) {
         return message.channel.createMessage({
             embed: {
