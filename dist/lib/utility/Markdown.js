@@ -20,4 +20,4 @@ var Markdown = /** @class */ (function () {
     };
     return Markdown;
 }());
-exports.default = new Markdown();
+exports.default = Markdown;

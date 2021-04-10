@@ -23,4 +23,4 @@ class Embedder {
     }
 }
 
-export default new Embedder();
+export default Embedder;

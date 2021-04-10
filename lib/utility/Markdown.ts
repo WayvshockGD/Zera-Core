@@ -21,4 +21,4 @@ class Markdown {
     }
 }
 
-export default new Markdown();
+export default Markdown;

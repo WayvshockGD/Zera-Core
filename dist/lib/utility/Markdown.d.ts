@@ -5,5 +5,4 @@ declare class Markdown {
     bold(args: string | string[]): string;
     strikeThrough(args: string | string[]): string;
 }
-declare const _default: Markdown;
-export default _default;
+export default Markdown;

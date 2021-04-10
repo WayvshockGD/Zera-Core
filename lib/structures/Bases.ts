@@ -6,11 +6,11 @@ import Utility from "../utility/Utility";
 
 class Bases extends Utility {
 
-    public get embed() {
+    get embed() {
         return Embedder;
     }
 
-    public get markdown() {
+    get markdown() {
         return Markdown;
     }
 
