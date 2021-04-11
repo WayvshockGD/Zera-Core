@@ -4,14 +4,17 @@ import Embedder from "../utility/Embedder";
 import Markdown from '../utility/Markdown';
 import Utility from "../utility/Utility";
 
+let newMarkdown = new Markdown();
+let newEmbedder = new Embedder();
+
 class Bases extends Utility {
 
-    get embed() {
-        return Embedder;
+    get embedder() {
+        return newEmbedder;
     }
 
     get markdown() {
-        return Markdown;
+        return newMarkdown;
     }
 
     sendMessage(message: Eris.Message, text: string) {

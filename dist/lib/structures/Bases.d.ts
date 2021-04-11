@@ -3,8 +3,8 @@ import Embedder from "../utility/Embedder";
 import Markdown from '../utility/Markdown';
 import Utility from "../utility/Utility";
 declare class Bases extends Utility {
-    get embed(): typeof Embedder;
-    get markdown(): typeof Markdown;
+    get embedder(): Embedder;
+    get markdown(): Markdown;
     sendMessage(message: Eris.Message, text: string): Promise<Eris.Message<Eris.TextableChannel>>;
     sendSuccess(message: Eris.Message, text: string, config: any): Promise<Eris.Message<Eris.TextableChannel>>;
     sendError(message: Eris.Message, text: string, config: any): Promise<Eris.Message<Eris.TextableChannel>>;

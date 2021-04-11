@@ -57,21 +57,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Embedder_1 = __importDefault(require("../utility/Embedder"));
 var Markdown_1 = __importDefault(require("../utility/Markdown"));
 var Utility_1 = __importDefault(require("../utility/Utility"));
+var newMarkdown = new Markdown_1.default();
+var newEmbedder = new Embedder_1.default();
 var Bases = /** @class */ (function (_super) {
     __extends(Bases, _super);
     function Bases() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    Object.defineProperty(Bases.prototype, "embed", {
+    Object.defineProperty(Bases.prototype, "embedder", {
         get: function () {
-            return Embedder_1.default;
+            return newEmbedder;
         },
         enumerable: false,
         configurable: true
     });
     Object.defineProperty(Bases.prototype, "markdown", {
         get: function () {
-            return Markdown_1.default;
+            return newMarkdown;
         },
         enumerable: false,
         configurable: true
