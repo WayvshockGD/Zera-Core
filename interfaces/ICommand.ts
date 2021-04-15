@@ -3,6 +3,7 @@ export default interface ICommand {
     name: string;
     description: string;
     category: string;
+    module: string;
 
     // Arrays
     aliases: string[];

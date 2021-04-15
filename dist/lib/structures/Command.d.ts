@@ -1,10 +1,10 @@
-import Eris from "eris";
 import ICommand from "../../interfaces/ICommand";
 import Bases from "./Bases";
 declare class Command extends Bases implements ICommand {
     name: string;
     description: string;
     category: string;
+    module: string;
     aliases: string[];
     examples: string[];
     subCommands: string[];
@@ -16,6 +16,6 @@ declare class Command extends Bases implements ICommand {
     cooldown: number;
     expectedArgs: number;
     constructor(command: any);
-    execute(client: Eris.Client, message: Eris.Message, args: string[]): void;
+    execute(): void;
 }
 export default Command;

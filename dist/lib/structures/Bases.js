@@ -57,6 +57,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Embedder_1 = __importDefault(require("../utility/Embedder"));
 var Markdown_1 = __importDefault(require("../utility/Markdown"));
 var Utility_1 = __importDefault(require("../utility/Utility"));
+var CronJobs_1 = __importDefault(require("../utility/CronJobs"));
 var newMarkdown = new Markdown_1.default();
 var newEmbedder = new Embedder_1.default();
 var Bases = /** @class */ (function (_super) {
@@ -74,6 +75,13 @@ var Bases = /** @class */ (function (_super) {
     Object.defineProperty(Bases.prototype, "markdown", {
         get: function () {
             return newMarkdown;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(Bases.prototype, "CronJob", {
+        get: function () {
+            return CronJobs_1.default;
         },
         enumerable: false,
         configurable: true

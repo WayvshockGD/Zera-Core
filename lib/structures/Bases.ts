@@ -3,6 +3,7 @@ import Eris from "eris";
 import Embedder from "../utility/Embedder";
 import Markdown from '../utility/Markdown';
 import Utility from "../utility/Utility";
+import cron from '../utility/CronJobs';
 
 let newMarkdown = new Markdown();
 let newEmbedder = new Embedder();
@@ -15,6 +16,10 @@ class Bases extends Utility {
 
     get markdown() {
         return newMarkdown;
+    }
+
+    get CronJob() {
+        return cron;
     }
 
     sendMessage(message: Eris.Message, text: string) {

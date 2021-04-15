@@ -2,6 +2,7 @@ export default interface ICommand {
     name: string;
     description: string;
     category: string;
+    module: string;
     aliases: string[];
     examples: string[];
     subCommands: string[];

@@ -6,6 +6,7 @@ class Command extends Bases implements ICommand {
     name: string;
     description: string;
     category: string;
+    module: string;
 
     aliases: string[]
     examples: string[];
@@ -26,6 +27,7 @@ class Command extends Bases implements ICommand {
         this.name = command || '';
         this.description = command || '';
         this.category = command || '';
+        this.module = command || '';
 
         this.aliases = command || [];
         this.examples = command || [];
@@ -41,7 +43,7 @@ class Command extends Bases implements ICommand {
         this.expectedArgs = command || 0;
     }
 
-    public execute(client: Eris.Client, message: Eris.Message, args: string[]) { }
+    public execute() { }
 }
 
 export default Command;

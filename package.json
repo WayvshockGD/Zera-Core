@@ -1,18 +1,18 @@
 {
-  "name": "@zera/core",
-  "version": "1.1.0",
-  "description": "",
+  "name": "@zero/core",
+  "version": "1.0.0",
+  "description": "The bot core of the discord bot: Zera.",
   "main": "./dist/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "wayv",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@types/cron": "^1.7.2",
     "@types/node-fetch": "^2.5.8",
     "typescript": "^4.2.3"
   },
   "dependencies": {
+    "@zera/utilitys": "github:WayvshockGD/zera-utilitys",
+    "cron": "^1.8.2",
     "eris": "^0.14.0",
     "mongoose": "^5.12.2",
     "node-fetch": "^2.6.1"
