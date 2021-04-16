@@ -26,9 +26,9 @@ var Module = /** @class */ (function (_super) {
         _this.name = module || '';
         _this.disabled = module || false;
         _this.description = module || '';
+        _this.commands = module || [];
         return _this;
     }
-    Module.prototype.execute = function () { };
     return Module;
 }(Bases_1.default));
 exports.default = Module;

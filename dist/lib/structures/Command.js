@@ -39,7 +39,6 @@ var Command = /** @class */ (function (_super) {
         _this.expectedArgs = command || 0;
         return _this;
     }
-    Command.prototype.execute = function () { };
     return Command;
 }(Bases_1.default));
 exports.default = Command;

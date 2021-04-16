@@ -16,6 +16,5 @@ declare class Command extends Bases implements ICommand {
     cooldown: number;
     expectedArgs: number;
     constructor(command: any);
-    execute(): void;
 }
 export default Command;

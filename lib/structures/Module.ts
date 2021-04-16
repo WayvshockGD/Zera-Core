@@ -5,6 +5,7 @@ class Module extends Bases implements IModule {
     name: string;
     disabled: boolean;
     description: string;
+    commands: [];
 
     constructor(module: any) {
         super();
@@ -12,9 +13,8 @@ class Module extends Bases implements IModule {
         this.name        = module || '';
         this.disabled    = module || false;
         this.description = module || '';
+        this.commands = module || [];
     }
-
-    public execute() { }
 }
 
 export default Module;

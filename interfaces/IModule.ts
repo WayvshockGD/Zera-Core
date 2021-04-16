@@ -1,5 +1,6 @@
 export default interface IModule {
-    name: string
-    description: string
-    disabled: boolean
+    name: string;
+    description: string;
+    commands: [];
+    disabled: boolean;
 }

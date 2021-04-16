@@ -42,8 +42,6 @@ class Command extends Bases implements ICommand {
         this.cooldown = command || 0;
         this.expectedArgs = command || 0;
     }
-
-    public execute() { }
 }
 
 export default Command;
