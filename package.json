@@ -1,5 +1,5 @@
 {
-  "name": "@zero/core",
+  "name": "@zera/core",
   "version": "1.2.0",
   "description": "The bot core of the discord bot: Zera.",
   "main": "./dist/index.js",
